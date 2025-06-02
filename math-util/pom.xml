@@ -9,9 +9,22 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+<!-- đây là nơi khai báo thư viện mình cần dùng, khai báo theo 1 cú pháp cho trước, ko gõ tự do
+    Gõ đúng cú pháp tên thư viện thì phía hậu trường của intellij có 1 tool khác sẽ đảm nhận việc tải thư viện trên mạng, add project để ta sẵn sàng xài class do thư viện cung cấp
+    Giống cơ chế hoạt động của C#, node.js/react
+        JAVA: TOOL LÀ MAVEN, CÂU LỆNH LÀ MVN
+        C#: TOOL LÀ NUGET, CÂU LỆNH LÀ DOTNET
+        ...
+-->
+
+<!--    mvnrepository.com-->
+    <dependencies>
+
+    </dependencies>
 
 </project>
