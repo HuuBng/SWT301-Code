@@ -36,4 +36,21 @@ class MathUtilityTest {
         assertEquals(24,MathUtility.getFactorial(4));
         assertEquals(120,MathUtility.getFactorial(5));
     }
+
+    // TEST CASE #4 (BẮT NGOẠI LỆ
+    // VERIFY getFactorial() with n < 0, e.g. n = -5 to throw an exception
+    // Steps:
+    // 1. Given an invalid number n = -5
+    // 2. Call/invoke the function getFactorial(-5)
+    // Expected result:
+    // an IllegalArgumentException will be thrown
+    // Nếu đưa -5 cà chớn, hy vọng sẽ nhìn thấy ngoại lệ
+    @Test
+    public void testFactorialGivenWrongArgumentMinus5ThrowException() {
+        // MathUtility.getFactorial(-5);
+        // Ta phải kiểm soát, ta phải đo xem ngoại lệ đã đến chưa nếu là -5 đưa vào
+        assertThrows(IllegalArgumentException.class, () -> MathUtility.getFactorial(-5));
+        // So sánh, đo xem, nhắm xem, ngoại lệ đã xuất hiện chưa nếu gọi -5!
+        // Cú pháp biểu thức lambda
+    }
 }
