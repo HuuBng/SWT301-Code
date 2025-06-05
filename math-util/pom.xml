@@ -6,7 +6,7 @@
 
     <groupId>com.huubng.tool</groupId>
     <artifactId>mathutil</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>83.86</version>
 
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
