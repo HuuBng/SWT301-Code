@@ -3,12 +3,10 @@
     [TestFixture]
     public class CalculatorTest
     {
-        private Calculator _calculator;
 
         [SetUp]
         public void Setup()
         {
-            _calculator = new Calculator();
         }
 
         // TDD: Test cases for Add method
@@ -21,7 +19,7 @@
             int expected = 8;
 
             // Act
-            int result = _calculator.Add(a, b);
+            int result = Calculator.Add(a, b);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
@@ -36,7 +34,7 @@
             int expected = 5;
 
             // Act
-            int result = _calculator.Add(a, b);
+            int result = Calculator.Add(a, b);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
@@ -49,10 +47,17 @@
         public void Add_VariousInputs_ReturnsCorrectSum(int a, int b, int expected)
         {
             // Act
-            int result = _calculator.Add(a, b);
+            int result = Calculator.Add(a, b);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test, TestCaseSource(nameof(GetTestData))]
+        public void Add_FromCsv_ReturnsCorrectSum(int a, int b, int expectedAdd, double expectedDivide)
+        {
+            int result = Calculator.Add(a, b);
+            Assert.That(result, Is.EqualTo(expectedAdd));
         }
 
         // TDD: Test cases for Divide method
@@ -65,7 +70,7 @@
             double expected = 5.0;
 
             // Act
-            double result = _calculator.Divide(a, b);
+            double result = Calculator.Divide(a, b);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
@@ -79,7 +84,7 @@
             double b = 0;
 
             // Act & Assert
-            Assert.Throws<DivideByZeroException>(() => _calculator.Divide(a, b));
+            Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
         }
 
         // DDT: Data-driven test for Divide method
@@ -89,10 +94,33 @@
         public void Divide_VariousInputs_ReturnsCorrectQuotient(double a, double b, double expected)
         {
             // Act
-            double result = _calculator.Divide(a, b);
+            double result = Calculator.Divide(a, b);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        // DDT: Data-driven test for Divide method using external data source
+        [Test, TestCaseSource(nameof(GetTestData))]
+        public void Divide_FromCsv_ReturnsCorrectQuotient(int a, int b, int expectedAdd, double expectedDivide)
+        {
+            double result = Calculator.Divide(a, b);
+            Assert.That(result, Is.EqualTo(expectedDivide));
+        }
+
+        private static IEnumerable<object[]> GetTestData()
+        {
+            string csvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, "TestData.csv");
+            return File.ReadAllLines(csvPath)
+                .Skip(1) // Skip header
+                .Select(line => line.Split(','))
+                .Select(values => new object[]
+                {
+                    int.Parse(values[0]), // a
+                    int.Parse(values[1]), // b
+                    int.Parse(values[2]), // expectedAdd
+                    double.Parse(values[3]) // expectedDivide
+                });
         }
     }
 }

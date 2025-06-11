@@ -1,0 +1,5 @@
+a,b,expectedAdd,expectedDivide
+1,1,2,1.0
+5,2,7,2.5
+-3,4,1,-0.75
+10,5,15,2.0
