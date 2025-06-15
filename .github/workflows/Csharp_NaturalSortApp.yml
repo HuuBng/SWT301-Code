@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      -  'C#/NaturalSortApp/**'
+      -  'Csharp/NaturalSortApp/**'
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
         with:
           dotnet-version: '9.0.x'
       - name: Restore
-        run: dotnet restore C#/NaturalSortApp/NaturalSortApp.sln
+        run: dotnet restore Csharp/NaturalSortApp/NaturalSortApp.sln
       - name: Build
-        run: dotnet build C#/NaturalSortApp/NaturalSortApp.sln --no-restore
+        run: dotnet build Csharp/NaturalSortApp/NaturalSortApp.sln --no-restore
       - name: Test
-        run: dotnet test C#/NaturalSortApp/NaturalSortApp.sln --no-build
+        run: dotnet test Csharp/NaturalSortApp/NaturalSortApp.sln --no-build
