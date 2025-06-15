@@ -11,6 +11,8 @@ name: Math Utility Project (CI included) | © 2025 by HuuBng
 on:
   push:
     branches: [ "main" ]    # Lấy code từ nhánh main nếu có ai push code lên. Có thể thay bằng nhánh dev... 
+    paths:
+    - 'Java/mathutil/**'
   pull_request:
     branches: [ "main" ]    # Lấy code từ nhánh main nếu có ai gửi pull request. Có thể thay bằng nhánh dev...  
 
