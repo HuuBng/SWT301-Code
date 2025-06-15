@@ -1,0 +1,5 @@
+InputStrings,ExpectedOutput
+"item3.5,item10,item2","item2,item3.5,item10"
+"file002,file010,file001","file001,file002,file010"
+"a1,c2,b10","a1,b10,c2"
+"part1-10,part1-2,part1-1","part1-1,part1-2,part1-10"
