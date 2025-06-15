@@ -1,6 +1,6 @@
 # Welcome to Math Utility Repository
 
-[![Math Utility Project (CI included) | © 2025 by HuuBng](https://github.com/HuuBng/mathutil/actions/workflows/ci-script.yml/badge.svg)](https://github.com/HuuBng/mathutil/actions/workflows/ci-script.yml)
+[![Math Utility Project (CI included) | © 2025 by HuuBng](https://github.com/HuuBng/SWT301-Code/actions/workflows/java_mathutil.yml/badge.svg)](https://github.com/HuuBng/SWT301-Code/actions/workflows/java_mathutil.yml)
 
 ## You will find in this repo the following stuff:
 
