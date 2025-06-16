@@ -1,4 +1,4 @@
-# Natural Sort Project by Group05
+# Natural Sort Project
 
 [![Natural Sort Project (CI included) |  © 2025 by HuuBng](https://github.com/HuuBng/SWT301-Code/actions/workflows/Csharp_NaturalSortApp.yml/badge.svg)](https://github.com/HuuBng/SWT301-Code/actions/workflows/Csharp_NaturalSortApp.yml)
 
