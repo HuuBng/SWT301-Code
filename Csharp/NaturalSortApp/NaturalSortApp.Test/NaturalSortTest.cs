@@ -55,7 +55,6 @@
 
                 if (parts.Length < 2) continue;
 
-                // Xoá dấu ngoặc kép ở đầu/cuối
                 var input = parts[0].Trim('"').Split(',');
                 var expected = parts[1].Trim('"').Split(',');
 
