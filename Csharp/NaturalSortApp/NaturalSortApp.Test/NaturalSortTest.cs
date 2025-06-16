@@ -11,8 +11,8 @@
         [Test]
         public void Sort_GivenNumbersOnly_ReturnsCorrectOutput()
         {
-            List<int> numbers = new List<int> { 3, 8, 1, 6, 2 };
-            var expected = new List<int> { 1, 2, 3, 6, 8 };
+            int[] numbers = { 3, 8, 1, 6, 2 };
+            var expected = new int[] { 1, 2, 3, 6, 8 };
 
             var actual = NaturalSort.OrderByNatural(numbers, n => n.ToString()).ToList();
 
@@ -28,8 +28,8 @@
                 "Calling OrderByNatural with a null source should throw ArgumentNullException.");
         }
 
-        [TestCase(new object[] { new[] { "pe10", "fe3.8", "re8", "fail0" }, new[] { "fail0", "fe3.8", "pe10", "re8" } })]
-        [TestCase(new object[] { new[] { "SWT301", "SWP391", "SWR302", "PRN212" }, new[] { "PRN212", "SWP391", "SWR302", "SWT301" } })]
+        [TestCase(new[] { "pe10", "fe3.8", "re8", "fail0" }, new[] { "fail0", "fe3.8", "pe10", "re8" })]
+        [TestCase(new[] { "SWT301", "SWP391", "SWR302", "PRN212" }, new[] { "PRN212", "SWP391", "SWR302", "SWT301" })]
         public void Sort_GivenStringsWithNumbers_ReturnsCorrectOutput(string[] strings, string[] expected)
         {
             var actual = NaturalSort.OrderByNatural(strings, s => s).ToList();
@@ -37,7 +37,7 @@
             Assert.That(actual, Is.EqualTo(expected), "Natural sort did not return the expected order for strings with numbers.");
         }
 
-        [Test, TestCaseSource(nameof(GetTestCasesFromCsv))]
+        [TestCaseSource(nameof(GetTestCasesFromCsv))]
         public void Sort_GivenStringsWithNumbersFromCsv_ReturnsCorrectOutput(string[] strings, string[] expected)
         {
             var actual = NaturalSort.OrderByNatural(strings, s => s).ToList();
@@ -59,7 +59,7 @@
                 var expected = parts[1].Trim('"').Split(',');
 
                 yield return new TestCaseData(input, expected)
-                    .SetName($"Sort_StringsFromCsv_{input[0]}");
+                    .SetName($"Sort_GivenStringsWithNumbersFromCsv_ReturnsCorrectOutput({input}, {expected})");
             }
         }
     }
