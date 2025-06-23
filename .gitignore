@@ -897,3 +897,4 @@ nbdist/
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,netbeans,intellij,csharp,dotnetcore,aspnetcore,visualstudio,visualstudiocode
+*.exe
