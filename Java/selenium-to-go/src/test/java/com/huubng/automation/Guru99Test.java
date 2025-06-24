@@ -26,6 +26,11 @@ class Guru99Test {
         WebElement loginButton = myBrowser.findElement(By.xpath("//input[@name='btnLogin']"));
         loginButton.click();
         
+        WebElement welcomeMessage = myBrowser.findElement(By.xpath("//td[normalize-space()='Manger Id : mngr625784']"));
+        String string = welcomeMessage.getText();
+        
+        assertEquals("Manger Id : mngr625784", string, "The welcome message should match the expected text.");
+        
     }
     // Test case #1: Test login page with valid manager account
     //          Steps:
@@ -51,7 +56,9 @@ class Guru99Test {
     // Dùng để khởi động biến, tập tin data (DDT từ Excel, .csv)
     static void setUp() {
         System.setProperty("webdriver.edgedriver.driver", "msedgedriver.exe");
-        myBrowser = new EdgeDriver();
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--inprivate");
+        myBrowser = new EdgeDriver(options);
         myBrowser.manage().window().maximize();
         
     }
