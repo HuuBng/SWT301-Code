@@ -16,20 +16,23 @@ class Guru99Test {
     @Test
     void testLoginGivenRightAccountSaysHello() {
         myBrowser.get("https://demo.guru99.com/V4");
+        
+        String username = "mngr625784";
+        String password = "pYmYget";
 
         WebElement userTextbox = myBrowser.findElement(By.xpath("//input[@name='uid']"));
-        userTextbox.sendKeys("mngr625784");
+        userTextbox.sendKeys(username);
         
         WebElement passTextbox = myBrowser.findElement(By.xpath("//input[@name='password']"));
-        passTextbox.sendKeys("pYmYget");
+        passTextbox.sendKeys(password);
         
         WebElement loginButton = myBrowser.findElement(By.xpath("//input[@name='btnLogin']"));
         loginButton.click();
         
-        WebElement welcomeMessage = myBrowser.findElement(By.xpath("//td[normalize-space()='Manger Id : mngr625784']"));
-        String string = welcomeMessage.getText();
+        WebElement welcomeMessage = myBrowser.findElement(By.cssSelector("tr[class='heading3'] td"));
+        String actual = welcomeMessage.getText().replace("Manger Id : ", "");
         
-        assertEquals("Manger Id : mngr625784", string, "The welcome message should match the expected text.");
+        assertEquals(username, actual, "The welcome message should match the expected text.");
         
     }
     // Test case #1: Test login page with valid manager account
